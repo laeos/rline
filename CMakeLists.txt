@@ -12,9 +12,9 @@ include_directories(${Readline_INCLUDE_DIR})
 
 add_definitions(-D_GNU_SOURCE)
 
-set(SRC_FILES rline.c exsh.c)
+add_library (RLine rline.c)
 
 if(UNIX)
-    add_executable(exsh ${SRC_FILES} exsh.c rline.c)
-    target_link_libraries(exsh ${Readline_LIBRARY})
+    add_executable(exsh exsh.c)
+    target_link_libraries(exsh RLine ${Readline_LIBRARY})
 endif(UNIX)

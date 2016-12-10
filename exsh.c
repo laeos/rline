@@ -24,8 +24,15 @@ static void hello_cmd(int argc, char *argv[])
     rline_message("goodbye.\n");
 }
 
+static void prompt_cmd(int argc, char *argv[])
+{
+    if (argc > 0)
+	rline_set_prompt(argv[0]);
+}
+
 static const struct rline_command ex_commands[] = {
     {"hello",	&hello_cmd, 		"\n\thello\n" },
+    {"prompt",	&prompt_cmd, 		"\n\tprompt [string]\n" },
 };
 
 static void read_loop(int timeout, int check_stdin)

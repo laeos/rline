@@ -457,6 +457,18 @@ void rline_message(const char *format, ...)
     }
 }
 
+void rline_set_prompt(const char *format, ...)
+{
+    char buf[512];
+    va_list ma;
+
+    va_start(ma, format);
+    vsnprintf(buf, sizeof(buf), format, ma);
+    va_end(ma);
+
+    rl_set_prompt(buf);
+}
+
 static void parse_command(int use_history, char *line)
 {
     struct arglist ar = {0};

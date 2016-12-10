@@ -40,6 +40,7 @@ void rline_main_loop(void);
 void rline_message(const char *format, ...);
 void rline_source_file(const char *fname);
 void rline_exec(int argc, char *argv[]);
+void rline_set_prompt(const char *format, ...);
 
 void rline_register_param(struct rline_table *t, const char * p);
 void rline_free_table(struct rline_table *t);

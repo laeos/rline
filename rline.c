@@ -278,7 +278,7 @@ static char **completion (const char *text, int start, int end)
         for (i = 0; (i < ar.count) && generator_table; i++) {
             const struct rline_command *c;
 	    table_find(generator_table, ar.argv[i], &c);
-            generator_table = c->params;
+	    generator_table = c ? c->params : NULL;
         }
     }
     if (generator_table)
